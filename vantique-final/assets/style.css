@@ -1,0 +1,290 @@
+/* Reset and Box Sizing */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Carousel Container */
+#cCarousel {
+  position: relative;
+  margin: auto;
+  padding: 0 50px; /* Adds padding to the sides of the carousel */
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+
+/* Carousel Arrows */
+#cCarousel .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Reduce size for mobile */
+  height: 40px;
+  font-size: 28px;
+  border-radius: 50%;
+  background: #8f480a;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+@media (max-width: 570px) {
+  #cCarousel .arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+}
+
+#cCarousel #prev {
+  left: -30px; /* Position adjusted for 5 cards */
+}
+
+#cCarousel #next {
+  right: -30px; /* Position adjusted for 5 cards */
+}
+
+/* Carousel Viewport */
+#carousel-vp {
+  width: 100%;  /* Use percentage instead of fixed width */
+  max-width: 1290px; /* Width for 5 cards with gaps */
+  height: 400px;
+  padding: 10px; /* Inner padding for a clean look */
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; 
+}
+
+/* Responsive Carousel Viewport Width */
+@media (max-width: 1290px) {
+  #carousel-vp {
+    width: 1050px; /* For 4 cards when screen is smaller */
+  }
+}
+
+@media (max-width: 1050px) {
+  #carousel-vp {
+    width: 810px; /* For 3 cards when screen is smaller */
+  }
+}
+
+@media (max-width: 810px) {
+  #carousel-vp {
+    width: 570px; /* For 2 cards when screen is smaller */
+  }
+}
+
+@media (max-width: 570px) {
+  #carousel-vp {
+    width: 290px; /* For 1 card when screen is smaller */
+  }
+}
+
+/* Carousel Inner Wrapper */
+#cCarousel #cCarousel-inner {
+  display: flex;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  gap: 10px;
+  left: 0px;
+}
+
+/* Carousel Item */
+.cCarousel-item {
+  width: 240px;
+  height: 365px;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cCarousel-item img {
+  width: 100%;
+  object-fit: cover;
+  min-height: 246px;
+  color: white;
+}
+
+.cCarousel-item .infos {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #a9906e;
+  color: black;
+}
+
+.cCarousel-item .infos button {
+  background: #222;
+  padding: 10px 30px;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsive Adjustments for Arrows and Padding */
+@media (max-width: 1050px) {
+  #cCarousel {
+    padding: 0 40px; /* Reduced padding for smaller screens */
+  }
+
+  #cCarousel #prev {
+    left: -20px; /* Adjusted arrow position */
+  }
+
+  #cCarousel #next {
+    right: -20px; /* Adjusted arrow position */
+  }
+}
+
+@media (max-width: 570px) {
+  #cCarousel {
+    padding: 0 20px; /* Minimal padding for small screens */
+  }
+
+  #cCarousel .arrow {
+    width: 40px; /* Smaller arrows for small screens */
+    height: 40px;
+    font-size: 24px;
+  }
+
+  #cCarousel #prev {
+    left: -15px;
+  }
+
+  #cCarousel #next {
+    right: -15px;
+  }
+}
+
+@media (max-width: 1290px) {
+  .cCarousel-item {
+    width: 280px;  /* 4 items per row */
+  }
+}
+
+@media (max-width: 1050px) {
+  .cCarousel-item {
+    width: 280px;  /* 3 items per row */
+  }
+}
+
+@media (max-width: 810px) {
+  .cCarousel-item {
+    width: 280px;  
+  }
+}
+
+@media (max-width: 570px) {
+  .cCarousel-item {
+    width: 280px; 
+  }
+}
+
+
+
+
+/* Important styles */
+#toggle {
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 30px;
+  margin: 30px auto 10px;
+}
+
+#toggle span:after,
+#toggle span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -9px;
+}
+#toggle span:after{
+  top: 9px;
+}
+#toggle span {
+  position: relative;
+  display: block;
+}
+
+#toggle span,
+#toggle span:after,
+#toggle span:before {
+  width: 100%;
+  height: 5px;
+  background-color: #8f480a;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+
+/* on activation */
+#toggle.on span {
+  background-color: transparent;
+}
+#toggle.on span:before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#toggle.on span:after {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+#toggle.on + #menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* menu appearance*/
+#menu {
+  right: 4px;
+  position: absolute;
+  color: #999;
+  width: 100px;
+  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  text-align: center;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  /* just for this demo */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s;
+}
+#menu:after {
+  position: absolute;
+  top: -15px;
+  left: 35px;
+  content: "";
+  height: 10px;
+  display: block;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid white;
+}
+ul, li, li a {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+li a {
+  padding: 5px;
+  color: #888;
+  text-decoration: none;
+  transition: all .2s;
+}
+li a:hover,
+li a:focus {
+  background: #1ABC9C;
+  color: #fff;
+}

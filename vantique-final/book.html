@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VANTIQUE| Books</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="https://res.cloudinary.com/dc6mhvrcn/image/upload/v1737700818/logo_jm8jpd.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ['Times New Roman', 'serif'],
+              paragraph: ['Merriweather', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const genreTabs = document.querySelectorAll('[data-genre]');
+            const cards = document.querySelectorAll('.card');
+
+            genreTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const genre = tab.getAttribute('data-genre');
+
+                    // Update active tab
+                    genreTabs.forEach(t => t.classList.remove('bg-white', 'text-[#8f480a]'));
+                    tab.classList.add('bg-white', 'text-[#8f480a]');
+
+                    // Filter cards
+                    cards.forEach(card => {
+                        if (genre === 'all' || card.getAttribute('data-genre') === genre) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+     
+</head>
+<body >
+  <!-- header -->
+   <header class="flex justify-between w-full bg-[#ecdfc3] items-center px-10  border-b-2 border-[#8f480a]" >
+    
+    <div class=" ">
+     <a href="home"> <img src="https://res.cloudinary.com/dc6mhvrcn/image/upload/v1737700818/logo_jm8jpd.png" class="h-[140px]"   alt="logo"></a>
+      </div>
+
+      <div class="pr-5 flex gap-5">
+        <button ><a class="text-[#8f480a] text-[20px] font-[500] font-paragraph" href="/poem.html">Poems</a></button>
+        <button ><a class="text-[#8f480a] text-[20px] font-[500] font-paragraph" href="/article.html">Articles</a></button>
+      </div>
+   </header>
+
+   <div class="bg-[#ecdfc3] shadow-md rounded-lg p-6 border-t-2 border-[#8f480a]">
+    <h1 class="font-[700] text-[50px] text-center  text-[#8f480a] font-heading">BOOKS</h1>
+ <!-- body -->
+ <div class="min-h-screen bg-[#ecdfc3] py-8">
+  <div class="container mx-auto px-4">
+    <section class="py-8 bg-[#ecdfc3] ">
+      <!-- Tabs and Search Row -->
+      <div class="sm:flex block items-start mb-6">
+        <!-- Genre Tabs -->
+        <div class="flex space-x-4">
+          <button class="genre-tab bg-[#a9906e] sm:py-2 sm:px-4 py-1 px-2 rounded" data-genre="all">All</button>
+          <button class="genre-tab bg-[#a9906e] sm:py-2 sm:px-4 py-1 px-2 rounded" data-genre="fiction">Fiction</button>
+          <button class="genre-tab bg-[#a9906e] sm:py-2 sm:px-4 py-1 px-2 rounded" data-genre="non-fiction">Non-Fiction</button>
+          <button class="genre-tab bg-[#a9906e] sm:py-2 sm:px-4 py-1 px-2 rounded" data-genre="poetry">Poetry</button>
+          <button class="genre-tab bg-[#a9906e] sm:py-2 sm:px-4 py-1 px-2 rounded" data-genre="fantasy">Fantasy</button>
+        </div>
+    
+        <!-- Search Bar -->
+        <div class="ml-auto sm:mt-0 mt-5">
+          <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search by name or genre..." 
+            class="w-96 border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-[#8f480a]">
+        </div>
+      </div>
+          <!-- Cards Section -->
+          <div id="cards-section" class="grid grid-cols-2 sm:grid-cols-3 gap-5">
+            <!-- Card 1 -->
+            <div class="card shadow-md rounded-lg p-4 sm:flex items-start sm:gap-4 gap-2 sm:my-6 my-3 w-full transition " style="background-color: white;" data-genre="poetry" data-name="How to Start Reading Poetry">
+              <img src="https://res.cloudinary.com/dc6mhvrcn/image/upload/v1737700817/laced_yhfohn.png" alt="Article Image" class="sm:w-24 w-full h-30 rounded-lg object-cover">
+              <div class="sm:flex-1 block">
+                <div class="text-xs sm:text-smtext-gray-600 mt-2 sm:mt-0">In <span class="font-semibold">Counter Arts</span> by <span class="font-semibold text-blue-600">Jason McBride</span></div>
+                <h3 class="sm:text-xl text:md font-bold text-gray-800 mt-1">How to Start Reading Poetry</h3>
+                <p class="text-xs sm:text-sm text-gray-600 mt-2">Don’t treat poetry like it’s sacred—treat a poetry book like an issue of Seventeen Magazine.</p>
+                <div class="flex items-center text-[10px] sm:text-sm text-gray-500 mt-2 sm:mt-4">
+                  <span>17h ago</span>
+                  <span class="mx-3">•</span>
+                  <span>5.8K views</span>
+                  <span class="mx-3">•</span>
+                  <span>4 comments</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-md rounded-lg p-4 sm:flex items-start sm:gap-4 gap-2 sm:my-6 my-3 w-full transition " style="background-color: white;" data-genre="poetry" data-name="How to Start Reading Poetry">
+              <img src="https://res.cloudinary.com/dc6mhvrcn/image/upload/v1737700817/laced_yhfohn.png" alt="Article Image" class="sm:w-24 w-full h-30 rounded-lg object-cover">
+              <div class="sm:flex-1 block">
+                <div class="text-xs sm:text-smtext-gray-600 mt-2 sm:mt-0">In <span class="font-semibold">Counter Arts</span> by <span class="font-semibold text-blue-600">Jason McBride</span></div>
+                <h3 class="sm:text-xl text:md font-bold text-gray-800 mt-1">How to Start Reading Poetry</h3>
+                <p class="text-xs sm:text-sm text-gray-600 mt-2">Don’t treat poetry like it’s sacred—treat a poetry book like an issue of Seventeen Magazine.</p>
+                <div class="flex items-center text-[10px] sm:text-sm text-gray-500 mt-2 sm:mt-4">
+                  <span>17h ago</span>
+                  <span class="mx-3">•</span>
+                  <span>5.8K views</span>
+                  <span class="mx-3">•</span>
+                  <span>4 comments</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-md rounded-lg p-4 sm:flex items-start sm:gap-4 gap-2 sm:my-6 my-3 w-full transition " style="background-color: white;" data-genre="poetry" data-name="How to Start Reading Poetry">
+              <img src="https://res.cloudinary.com/dc6mhvrcn/image/upload/v1737700817/laced_yhfohn.png" alt="Article Image" class="sm:w-24 w-full h-30 rounded-lg object-cover">
+              <div class="sm:flex-1 block">
+                <div class="text-xs sm:text-smtext-gray-600 mt-2 sm:mt-0">In <span class="font-semibold">Counter Arts</span> by <span class="font-semibold text-blue-600">Jason McBride</span></div>
+                <h3 class="sm:text-xl text:md font-bold text-gray-800 mt-1">How to Start Reading Poetry</h3>
+                <p class="text-xs sm:text-sm text-gray-600 mt-2">Don’t treat poetry like it’s sacred—treat a poetry book like an issue of Seventeen Magazine.</p>
+                <div class="flex items-center text-[10px] sm:text-sm text-gray-500 mt-2 sm:mt-4">
+                  <span>17h ago</span>
+                  <span class="mx-3">•</span>
+                  <span>5.8K views</span>
+                  <span class="mx-3">•</span>
+                  <span>4 comments</span>
+                </div>
+              </div>
+            </div>
+      
+        
+            <!-- Add more cards with different genres and names as needed -->
+          </div>
+        </section>
+        
+        <script>
+          const genreTabs = document.querySelectorAll('.genre-tab');
+          const searchBar = document.getElementById('searchBar');
+          const cards = document.querySelectorAll('.card');
+        
+          genreTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+              const genre = tab.getAttribute('data-genre');
+        
+              cards.forEach(card => {
+                card.style.display = (genre === 'all' || card.getAttribute('data-genre') === genre) ? 'flex' : 'none';
+              });
+            });
+          });
+        
+          searchBar.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+        
+            cards.forEach(card => {
+              const name = card.getAttribute('data-name').toLowerCase();
+              const genre = card.getAttribute('data-genre').toLowerCase();
+        
+              card.style.display = (name.includes(query) || genre.includes(query)) ? 'flex' : 'none';
+            });
+          });
+        </script>
+        
+           
+  </div>
+</div>
+      
+  
+
+
+
+   <!-- footer -->
+
+   <footer class="grid sm:grid-cols-3 grid-cols-2 gap-4 bg-[#ecdfc3] py-8  sm:pr-[5rem] text-center border-t-2 border-[#8f480a]">
+    <div >
+     <p class=" text-[#8f480a] text-[16px] sm:text-[20px] font-[500] font-paragraph">Social Links</p>
+     <ul class="mt-3 sm:gap-3 flex justify-center">
+      <li><a href="https://www.instagram.com/vantique._?igsh=MWk3bWlmZ2ZqMGZ0Yw=="><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#8f480a" d="M11.469 5C7.918 5 5 7.914 5 11.469v9.062C5 24.082 7.914 27 11.469 27h9.062C24.082 27 27 24.086 27 20.531V11.47C27 7.918 24.086 5 20.531 5zm0 2h9.062A4.463 4.463 0 0 1 25 11.469v9.062A4.463 4.463 0 0 1 20.531 25H11.47A4.463 4.463 0 0 1 7 20.531V11.47A4.463 4.463 0 0 1 11.469 7m10.437 2.188a.9.9 0 0 0-.906.906c0 .504.402.906.906.906a.9.9 0 0 0 .907-.906a.9.9 0 0 0-.907-.906M16 10c-3.3 0-6 2.7-6 6s2.7 6 6 6s6-2.7 6-6s-2.7-6-6-6m0 2c2.223 0 4 1.777 4 4s-1.777 4-4 4s-4-1.777-4-4s1.777-4 4-4"/></svg></a></li>
+      <li><a href="https://www.facebook.com/profile.php?id=61571815197262&mibextid=ZbWKwL"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#8f480a" d="M13 22H9a1 1 0 0 1-1-1v-6.2H6a1 1 0 0 1-1-1v-3.6a1 1 0 0 1 1-1h2V7.5A5.77 5.77 0 0 1 14 2h3a1 1 0 0 1 1 1v3.6a1 1 0 0 1-1 1h-3v1.6h3a1 1 0 0 1 .8.39a1 1 0 0 1 .16.88l-1 3.6a1 1 0 0 1-1 .73H14V21a1 1 0 0 1-1 1m-3-2h2v-6.2a1 1 0 0 1 1-1h2.24l.44-1.6H13a1 1 0 0 1-1-1V7.5a2 2 0 0 1 2-1.9h2V4h-2a3.78 3.78 0 0 0-4 3.5v2.7a1 1 0 0 1-1 1H7v1.6h2a1 1 0 0 1 1 1Z"/></svg></a></li>
+      <li><a href="https://x.com/thevantiqueorg?t=O-fsTXM7A5P5e-hKzzowsA&s=08"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="#8f480a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m13.081 10.712l-4.786-6.71a.6.6 0 0 0-.489-.252H5.28a.6.6 0 0 0-.488.948l6.127 8.59m2.162-2.576l6.127 8.59a.6.6 0 0 1-.488.948h-2.526a.6.6 0 0 1-.489-.252l-4.786-6.71m2.162-2.576l5.842-6.962m-8.004 9.538L5.077 20.25"/></svg></a></li>
+    </ul>
+    </div>
+    
+    <div >
+      <p class="text-[#8f480a] text-[16px] sm:text-[20px] font-[500] font-paragraph">Important Links</p>
+    <ul class="mt-3">
+      <li class="text-[#a9906e] text-[16px] sm:text-[20px] font-[500] font-paragraph"><a href="about-us">About Us</a></li>
+      <li class="text-[#a9906e] text-[16px] sm:text-[20px] font-[500] font-paragraph"><a href="contact-us">Contact Us</a></li>
+    </ul>
+    </div>
+    
+    <div class="items-center w-full" >
+      <p class="text-[#8f480a] text-[16px] sm:text-[20px] font-[500] font-paragraph">NewsLetter</p>
+      <div class="flex items-center gap-3 justify-center sm:rounded-[40px] p-2 bg-[#c2ad90] mt-3 ml-12 w-full">
+        <input class="ml-2 p-2 sm:rounded-[30px]  outline-none w-full bg-[#c3ad90]" placeholder="Enter your Mail">
+    
+        <button class="bg-[#a9906e] p-2 px-4  sm:rounded-[20px] font-paragraph">Submit</button>
+      </div>
+    </div>
+    
+       </footer>
+  
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwuepXs_Pt_mcWKUof6B5h8ODIPzXz3cNq68SdsYAxVORsc9oe8I03eWIPpFtPOvFNI/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          msg.innerHTML = "Thank You for Subscribing!"
+          setTimeout(function(){
+            msg.innerHTML = ""
+          },2000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+ 
+</body>
+</html>
